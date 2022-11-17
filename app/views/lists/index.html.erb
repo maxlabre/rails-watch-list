@@ -1,14 +1,13 @@
-<h1>Index</h1>
-<div class="center">
-  <%= link_to "New list", new_list_path, class:'btn btn-primary m-4'%>
-</div>
-<div class="center">
-  <% if @lists.empty? %>
-    <%= 'Please create your first list' %>
-  <% else %>
-    <% @lists.each do |l| %>
-      <li> <%= l.name %>
-         <%=link_to "More details", list_path(l)%> </li>
-    <% end %>
+<%= render "navbar" %>
+<%= render "banner" %>
+
+<div class="cards">
+  <% @lists.each do |l| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/b/b5/Deep_Roy_Photo_Op_GalaxyCon_Richmond_2019.jpg)">
+      <a class="nav-link" href=<%= list_path(l) %>><%= l.name %></a>
+  </div>
   <% end %>
+
 </div>
+
+<%= render "footer" %>
