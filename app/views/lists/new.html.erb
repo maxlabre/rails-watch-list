@@ -1,0 +1,9 @@
+<h1>New</h1>
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.submit %>
+  <% end %>
+
+<div class="center">
+  <%= link_to "HomePage", lists_path, class:'btn btn-primary m-4'%>
+</div>
