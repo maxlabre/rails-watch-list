@@ -1,12 +1,16 @@
- <%= render "lists/navbar" %>
- <%= render "lists/banner" %>
+  <%= render "lists/navbar" %>
+  <%= render "lists/banner" %>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit %>
-<% end %>
+<div class="d-flex justify-content-center flex-column">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit "Submit", class:"btn btn-ghost" %>
+  <% end %>
 
-<a class="btn btn-ghost" href=<%=list_path(@list)%>>Back to list</a>
+  <%= link_to "Back to list", list_path(@list), class:"btn btn-ghost" %>
+
+</div>
+
 
  <%= render "lists/footer" %>

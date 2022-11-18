@@ -1,20 +1,21 @@
  <%= render "navbar" %>
  <%= render "banner" %>
 
-
-<% @list.bookmarks.each do |b| %>
-  <div class="card-movie">
-    <img src= <%= b.movie.poster_url%>/>
-    <div class="card-movie-infos">
-      <h2><%= b.movie.title %></h2>
-      <p><strong>Overview: </strong><%= b.movie.overview %></p>
-      <p><strong>Ratings: </strong><strong><%= b.movie.rating %></strong></p>
-      <p><b><i><%= b.comment %></i></b></p>
+<div class="d-flex justify-content-center flex-column">
+  <% @list.bookmarks.each do |b| %>
+    <div class="card-movie">
+      <img src= <%= b.movie.poster_url%>>
+      <div class="card-movie-infos">
+        <h2><%= b.movie.title %></h2>
+        <p><strong>Overview: </strong><%= b.movie.overview %></p>
+        <p><strong>Ratings: </strong><strong><%= b.movie.rating %></strong></p>
+        <p><b><i><%= b.comment %></i></b></p>
+      </div>
+        <%= link_to "Delete", bookmark_path(b), data:{turbo_method: :delete, turbo_confirm: "OK"}, class:"btn btn-delete" %>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<a class="btn btn-ghost" href=<%=new_list_bookmark_path(@list)%>>Add a bookmark</a>
-
+  <a class="btn btn-ghost" href=<%=new_list_bookmark_path(@list)%>>Add a bookmark</a>
+</div>
 
 <%= render "footer" %>
